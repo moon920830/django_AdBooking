@@ -1,0 +1,7 @@
+Media_Manager/settings.py
+Media_Manager/wsgi.py
+**/migrations/**
+**/__pycache__/**
+db.sqlite3
+tmp/logs/*
+.vscode/*
