@@ -68,6 +68,28 @@ class GLCode(models.Model):
     class Meta:
         db_table = 'advertising_glcode'
 
+class Location(models.Model):
+    location = models.CharField(max_length=3, unique=True)
+    description = models.CharField(max_length=100)
+    pc = models.CharField(max_length=3)
+    last_updated = models.DateTimeField(auto_now=True)
+    created_by = models.CharField(max_length=100)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.code
+
+    class Meta:
+        permissions = (
+            ('can_create_location', 'Can create Location'),
+            ('can_edit_locations', 'Can edit Location'),
+            ('can_import_location', 'Can import Location'),
+            ('can_export_location', 'Can export Location'),
+        )
+
+    class Meta:
+        db_table = 'advertising_location'
+
 class CurrentCompany(models.Model):
     company = models.ForeignKey('Company', on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

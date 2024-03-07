@@ -16,3 +16,4 @@ from .finance import *
 from .companies import *
 from .classifieds import *
 from .advertiser import *
+from .location import *

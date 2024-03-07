@@ -110,6 +110,13 @@ urlpatterns = [
     path('gl-codes/<int:code_id>/', views.gl_code_details, name='gl_code_details'),
 	path('gl-codes/<int:code_id>/edit/', views.edit_gl_code, name='edit_gl_code'),
 	
+
+	# Location Routes
+	path('locations/', views.list_location, name='list_location'),
+	path('location/new/', views.create_location, name='create_location'),
+    path('location/<int:location_id>/', views.location_details, name='location_details'),
+	path('location/<int:location_id>/edit/', views.edit_location, name='edit_location'),
+
 	# Adjustments Routes 
 	path('publication/<int:publication_id>/adjustments/', views.list_adjustments, name='list_adjustments'),
 	path('publication/<int:publication_id>/adjustments/new/', views.create_adjustment, name='create_adjustment'),
