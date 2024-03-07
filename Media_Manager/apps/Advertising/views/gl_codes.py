@@ -55,7 +55,7 @@ def create_gl_code(request):
         except User.DoesNotExist:
             print('User does not exist')
 
-        gl_code = GLCode(code=reqData['code'], description=reqData['description'], created_by=user)
+        gl_code = GLCode(code=reqData['code'], description=reqData['description'], pl_type=reqData['pl_type'], created_by=user)
         gl_code.save()
 
         message = 'GL Code #' + str(gl_code.id) + ' has been created by ' + request.user.username
@@ -82,8 +82,9 @@ def edit_gl_code(request, code_id):
     if request.method == 'POST':
         reqData = json.loads(request.body.decode('utf-8'))
 
-        gl_code.code = reqData['code']
-        gl_code.description = reqData['description']
+        gl_code.code         = reqData['code']
+        gl_code.description  = reqData['description']
+        gl_code.pl_type      = reqData['pl_type']
         gl_code.last_updated = datetime.now()
 
         gl_code.save()
@@ -112,7 +113,8 @@ def gl_code_details(request, code_id):
         
         gl_code = {
             'code': glCode.code,
-            'description': glCode.description
+            'description': glCode.description,
+            'pl_type': glCode.pl_type
         }
         
         return JsonResponse({ "message": "Success", "gl_code": gl_code }, status=200)

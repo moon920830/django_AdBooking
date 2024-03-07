@@ -49,6 +49,7 @@ class GLCode(models.Model):
     code = models.CharField(max_length=4, unique=True)
     description = models.CharField(max_length=100)
     # company = models.ForeignKey('Company', on_delete=models.CASCADE)
+    pl_type = models.CharField(max_length=100)
     last_updated = models.DateTimeField(auto_now=True)
     created_by = models.CharField(max_length=100)
     date_created = models.DateTimeField(auto_now_add=True)

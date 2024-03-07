@@ -2,6 +2,7 @@ const createGLCodeModal = document.querySelector('#create_gl_code_modal');
 const createGLCodeForm = document.querySelector('#create_gl_code_form');
 const createCode = document.querySelector('#code');
 const createDescription = document.querySelector('#description');
+const createPLType = document.querySelector('#pl_type');
 const createSubmitBtn = document.querySelector('#create_gl_code_submit');
 
 const editBtns = document.querySelectorAll('.edit-btn');
@@ -10,6 +11,7 @@ const editGLCodeModal = document.querySelector('#edit_gl_code_modal');
 const editGLCodeForm = document.querySelector('#create_gl_code_form');
 const editCode = document.querySelector('#editCode');
 const editDescription = document.querySelector('#editDescription');
+const editPLType = document.querySelector('#editPLType');
 const editSubmitBtn = document.querySelector('#edit_gl_code_submit');
 
 let codeId;
@@ -31,7 +33,12 @@ createSubmitBtn.addEventListener('click', e => {
     }
 
     if(createDescription.value.length < 1 )  {
-        alert("Please input the description correctly!");
+        alert("Please input the description!");
+        return;
+    }
+
+    if(createPLType.value.length < 1 )  {
+        alert("Please input the P&L Type!");
         return;
     }
 
@@ -46,7 +53,8 @@ createSubmitBtn.addEventListener('click', e => {
         // send only numerical gl code
         body: JSON.stringify({
             code: createCode.value,
-            description: createDescription.value
+            description: createDescription.value,
+            pl_type : createPLType.value
         })
     })
         .then(res => res.json())
@@ -66,6 +74,7 @@ createSubmitBtn.addEventListener('click', e => {
 $('#create_gl_code_modal').on('hide.bs.modal', e => {
     createCode.value = '';
     createDescription.value = '';
+    createPLType.value = '';
 });
 
 editBtns.forEach(btn => {
@@ -90,6 +99,7 @@ $('#edit_gl_code_modal').on('show.bs.modal', e => {
                 // Display the formatted code
                 editCode.value = glCode.code;
                 editDescription.value = glCode.description;
+                editPLType.value = glCode.pl_type;
             })
     }
 });
@@ -104,9 +114,15 @@ editSubmitBtn.addEventListener('click', e => {
     }
 
     if(editDescription.value.length < 1 )  {
-        alert("Please input the description correctly!");
+        alert("Please input the description!");
         return;
     }
+
+    if(editPLType.value.length < 1 )  {
+        alert("Please input the P&L Type!");
+        return;
+    }
+
     
     fetch(`/advertising/gl-codes/${codeId}/edit/`, {
         method: "POST",
@@ -118,7 +134,8 @@ editSubmitBtn.addEventListener('click', e => {
         },
         body: JSON.stringify({
             code: editCode.value,
-            description: editDescription.value
+            description: editDescription.value,
+            pl_type : editPLType.value
         })
     })
         .then(res => res.json())
