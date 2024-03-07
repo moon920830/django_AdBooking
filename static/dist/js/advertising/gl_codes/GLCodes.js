@@ -14,7 +14,9 @@ const editSubmitBtn = document.querySelector('#edit_gl_code_submit');
 
 let codeId;
 
-const GL_CODE_LENGTH = 16;
+// Define the Gl code style feature
+const GL_CODE_LENGTH = 7;
+const GL_CODE_SEGMENT_LENGTH = [4, 3];
 
 createSubmitBtn.addEventListener('click', e => {
     e.preventDefault();
@@ -43,7 +45,7 @@ createSubmitBtn.addEventListener('click', e => {
         },
         // send only numerical gl code
         body: JSON.stringify({
-            code: glCode,
+            code: createCode.value,
             description: createDescription.value
         })
     })
@@ -85,12 +87,8 @@ $('#edit_gl_code_modal').on('show.bs.modal', e => {
 
                 let glCode = data.gl_code;
 
-                let pattern = /^(\d{2})(\d{3})(\d{2})(\d{2})(\d{4})(\d{3})$/;
-                // Apply the pattern and format the string
-                let formattedCode = glCode.code.replace(pattern, '$1-$2-$3-$4-$5-$6');
-                
                 // Display the formatted code
-                editCode.value = formattedCode;
+                editCode.value = glCode.code;
                 editDescription.value = glCode.description;
             })
     }
@@ -119,7 +117,7 @@ editSubmitBtn.addEventListener('click', e => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            code: glCode,
+            code: editCode.value,
             description: editDescription.value
         })
     })
@@ -159,8 +157,8 @@ const searchCodes = (searchValue) => {
 
 // Function to format the code as xx-xxx-xx-xx-xxxx-xxx
 function formatGLCode(inputElement) {
-    const GL_CODE_LENGTH = 16; // Assuming GL_CODE_LENGTH is defined somewhere
-    const segmentLengths = [2, 3, 2, 2, 4, 3];
+    
+    
     
     let formatted = inputElement.value.replace(/\D/g, ''); // Remove non-numeric characters
     formatted = formatted.slice(0, GL_CODE_LENGTH); // Limit to GL_CODE_LENGTH characters
@@ -168,10 +166,10 @@ function formatGLCode(inputElement) {
     let currentIndex = 0;
     
     // Format the code
-    for (let i = 0; i < segmentLengths.length; i++) {
-        if (formatted.length > currentIndex + segmentLengths[i]) {
-            formatted = formatted.slice(0, currentIndex + segmentLengths[i]) + '-' + formatted.slice(currentIndex + segmentLengths[i]);
-            currentIndex += segmentLengths[i] + 1;
+    for (let i = 0; i < GL_CODE_SEGMENT_LENGTH.length; i++) {
+        if (formatted.length > currentIndex + GL_CODE_SEGMENT_LENGTH[i]) {
+            formatted = formatted.slice(0, currentIndex + GL_CODE_SEGMENT_LENGTH[i]) + '-' + formatted.slice(currentIndex + GL_CODE_SEGMENT_LENGTH[i]);
+            currentIndex += GL_CODE_SEGMENT_LENGTH[i] + 1;
         }
     }
     

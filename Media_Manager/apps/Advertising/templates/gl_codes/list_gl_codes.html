@@ -52,7 +52,7 @@
                             {% for code in gl_codes %}
                                 <tr>
                                     <td>{{ code.id }}</td>
-                                    <td>{{ code.code|format_gl_code }}</td>
+                                    <td>{{ code.code }}</td>
                                     <td>{{ code.description }}</td>
                                     <td data-code-id="{{ code.id }}">
                                         <a href="#" class="edit-btn"><i class="fa fa-pencil" ></i></a>
