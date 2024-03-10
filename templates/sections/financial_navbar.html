@@ -14,7 +14,7 @@
 		<a href="{{url}}/" class="sidebar-toggle" data-toggle="push-menu" role="button">
 			<span class="sr-only">Toggle navigation</span>
 		</a>
-
+        
 		<!-- Navbar Right Menu -->
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
@@ -135,109 +135,41 @@
 	<!-- sidebar: style can be found in sidebar.less -->
 	<section class="sidebar">
 		<!-- Sidebar Menu -->
-		<ul id="sidebar" class="sidebar-menu" data-widget="tree">
+		<ul id="sidebar" class="advertise-sidebar" data-widget="tree">
 
 			{% if user.is_superuser %}
-			<li>			
-				<a href="{{url}}/admin"><i class="fa fa-shield"></i> <span>Admin</span></a>
+			<li class="advertise-sidebar-li">			
+				<a class="adiversite-sidebar-link" href="{{url}}/admin"><i class="fa fa-id-card"></i> <span class="advertise-sidebar-li-span">Dashboard</span></a>
 			</li>
 			{% endif %}
-			<li><a href="{{url}}/"><i class="fa fa-home"></i> <span>Home</span></a></li>
+            <li class="advertise-sidebar-li">
+                <a class="adiversite-sidebar-link" href="{{url}}/"><i class="fa fa-file"></i> <span class="advertise-sidebar-li-span">Content</span></a>
+            </li>
+			<li class="advertise-sidebar-li">
+                <a class="adiversite-sidebar-link" href="{{url}}/"><i class="fa fa-briefcase"></i> <span class="advertise-sidebar-li-span">Business Setup</span></a>
+            </li>
 			{% if "BI.accounting_access" in menu %}
-			<li>
-				<a href="{{url}}/accounting"><i class="fa fa-calculator"></i> <span>Accounting</span></a>
-			</li>
+			<li class="advertise-sidebar-li">
+				<a class="adiversite-sidebar-link" href="{{url}}/advertising"><i class="fa fa-plus"></i> <span class="advertise-sidebar-li-span">Create</span></a>
+            </li>
 			{% endif %}
 			{% if "BI.advertising_access" in menu %}
-			<li>
-				<a href="{{url}}/advertising"><i class="fa fa-bullhorn"></i> <span>Advertising</span></a>
-			</li>
+			<li class="advertise-sidebar-li">
+				<a class="adiversite-sidebar-link" href="{{url}}/advertising"><i class="fa fa-file-text-o"></i> <span class="advertise-sidebar-li-span">Product</span></a>
+            </li>
 			{% endif %}
 			{% if "BI.bi_access" in menu %}
-			<li>
-				<a href="{{url}}/bi"><i class="fa fa-line-chart"></i> <span>BI</span></a>
-			</li>
+			<li class="advertise-sidebar-li">
+				<a class="adiversite-sidebar-link" href="{{url}}/bi"><i class="fa fa-sliders"></i> <span class="advertise-sidebar-li-span">Settings</span></a>
+            </li>
 			{% endif %}
 			{% if "BI.circulation_access" in menu %}
-			<li>
-				<a href="{{url}}/circulation"><i class="fa fa-circle-o-notch"></i> <span>Circulation</span></a>
+			<li class="advertise-sidebar-li">
+				<a href="{{url}}/circulation"><i class="fa fa-undo"></i> <span class="advertise-sidebar-li-span">Return To</span> <img class="advertise-sidebar-li-span" src="{% static "dist/img/summaware-icon-500.png" %}" width="20"  /></a>
 			</li>
 			{% endif %}
-			{% if "BI.editorial_access" in menu %}
-			<li>
-				<a href="{{url}}/editorial"><i class="fa fa-edit"></i> <span>Editorial</span></a>
-			</li>
-			{% endif %}
-			{% if "BI.financial_access" in menu %}
-			<li>
-				<a href="{{url}}/financial"><i class="fa fa-briefcase"></i> <span>Financial</span></a>
-			</li>
-			{% endif %}
-			{% if "BI.production_access" in menu %}
-			<li>
-				<a href="{{url}}/production"><i class="fa fa-id-card"></i> <span>Production</span></a>
-			</li>
-			{% endif %}
-			<li>
-				<a href="{{url}}/support"><i class="fa fa-question-circle"></i> <span>Support</span></a>
-			</li>
 		</ul>
 		<!-- /.search form -->
-
-		<!-- <ul class="" data-widget="tree">
-			{% if "BI.advertising_access" in menu %}
-			<li>
-				<a><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
-				<ul class="sidebar-menu">
-					<li><a href="#" class="sub-sidebar-menu">Ad Campaigns</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Advertises</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Publications</a></li>
-				</ul>
-			</li>
-			<li>
-				<a><i class="fa fa-briefcase"></i><span>Business Setup</span></a>
-				<ul class="sidebar-menu">
-					<li><a href="#" class="sub-sidebar-menu">GL Codes</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Ad Type</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Ad Rate</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Invoice</a></li>
-				</ul>
-			</li>
-			<li>
-				<a><i class="fa fa-plus"></i><span>Create</span></a>
-				<ul class="sidebar-menu">
-					<li><a href="#" class="sub-sidebar-menu">New Advertise</a></li>
-					<li><a href="#" class="sub-sidebar-menu">New Campaign</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Sales Rep</a></li>
-					<li><a href="#" class="sub-sidebar-menu">New Publication</a></li>
-				</ul>
-			</li>
-			<li>
-				<a><i class="fa fa-square"></i><span>Product</span></a>
-				<ul class="sidebar-menu">
-					<li><a href="#" class="sub-sidebar-menu">GL Codes</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Ad Types</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Ad Rates</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Invoices</a></li>
-				</ul>
-			</li>
-			<li>
-				<a><i class="fa fa-sliders"></i><span>Settings</span></a>
-				<ul class="sidebar-menu">
-					<li><a href="#" class="sub-sidebar-menu">Appearance</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Tools</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Plugins</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Custom Fields</a></li>
-					<li><a href="#" class="sub-sidebar-menu">Support</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#"><i class="fa fa-undo"></i><span>Return to</span></a>
-			</li>
-			{% endif %}
-		</ul> -->
-
-		<!-- /.sidebar-menu -->
 	</section>
 	<!-- /.sidebar -->
 </aside>

@@ -25,6 +25,8 @@
 			<!-- Main Header -->
 			{% if advertising %}
 			{% include "templates/sections/advertise_navbar.html" %}
+			{% elif financial %}
+			{% include "templates/sections/financial_navbar.html" %}
 			{% else %}
 			{% include "templates/sections/navbar.html" %}
 			{% endif %}

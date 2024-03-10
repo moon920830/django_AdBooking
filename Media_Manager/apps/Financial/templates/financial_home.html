@@ -1,0 +1,103 @@
+{% extends "templates/base.html" %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "admin/css/financial.css" %}">
+{% endblock %}
+
+
+{% block endjs %}
+    <script src='{% static "dist/js/financial/financial_home.js" %}'></script>
+{% endblock %}
+
+{% block breadcrumb %}
+<li class="active">Financial</li>
+{% endblock %}
+
+{% block content %}
+
+	<div class="financial-back-image">
+		<img src="{% static "svg/detail_back_img.svg" %}">
+	</div>
+
+    <div id="financial-content">
+        <div class="col-md-12">
+
+			<!-- <div class="financial-title-back-image">
+				<img src="{% static 'svg/detail_card_img.svg' %}">
+			</div> -->
+
+            <div class="financial-title">
+
+				
+
+				<div class="financial-title-header">
+					<a href="#"><i class="fa fa-chevron-left"></i></a>
+					<span>GL Codes</span>
+					<a href="#"><i class="fa fa-chevron-right"></i></a>
+				</div>
+
+				<div class="financial-title-buttons">
+					<button>GL Codes</button>					
+					<span>Billing Terms</span>
+					<span>Fiscal Years & Accounting Periods</span>
+				</div>
+				
+            </div>
+
+			<div class="financial-main">
+				<div class="save-change">
+					<button>Save changes</button>
+				</div>
+				<div class="description">
+					Select a section below to view/manage its <br>
+					list of codes. 
+				</div>
+
+				<div class="financial-code-group">
+					<div class="code-item">
+						<button id="manage_company">Company</button>
+						<div class="code-item-style">XX</div>
+					</div>
+					<div>-</div>
+					<div class="code-item">
+						<button id="manage_location">Location</button>
+						<div class="code-item-style">XXX</div>
+					</div>
+					<div>-</div>
+					<div class="code-item">
+						<button id="manage_department">Department</button>
+						<div class="code-item-style">XX</div>
+					</div>
+					<div>-</div>
+					<div class="code-item">
+						<button id="manage_profit">Profit</button>
+						<div class="code-item-style">XX</div>
+					</div>
+					<div>-</div>
+					<div class="code-item">
+						<button id="manage_gl">GL</button>
+						<div class="code-item-style">XXXX-XXX</div>
+					</div>
+					<div class="edit-layout">
+						<a href="#">Edit Layout</a>
+					</div>
+				</div>
+
+				{% include 'financial_company_code.html' %}
+				{% include 'financial_location_code.html' %}
+				{% include 'financial_department_code.html' %}
+				{% include 'financial_profit_code.html' %}
+				{% include 'financial_gl_code.html' %}
+
+
+				<div class="save-change-bottom">
+					<button>Save changes</button>
+				</div>
+			</div>
+
+			
+        </div>
+    </div>
+{% endblock %}

@@ -6,7 +6,7 @@ def get_groups(request):
 	return groups
 	
 def get_sidebar(request):
-	check_list = ["BI.accounting_access", "BI.advertising_access", "BI.bi_access", "BI.circulation_access", "BI.editorial_access", "BI.production_access"]
+	check_list = ["BI.accounting_access", "BI.advertising_access", "BI.bi_access", "BI.circulation_access", "BI.editorial_access", "BI.financial_access", "BI.production_access"]
 	return_list = []
 
 	for item in check_list:

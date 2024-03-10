@@ -83,6 +83,8 @@ INSTALLED_APPS = [
     'Media_Manager.apps.Home',
 
     'Media_Manager.apps.Production',
+
+    'Media_Manager.apps.Financial',
 ]
 
 

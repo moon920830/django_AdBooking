@@ -33,6 +33,7 @@ urlpatterns = [
 	path('production/', include('Media_Manager.apps.Production.urls')),
 	#path('admin/', include('Media_Manager.apps.Admin.urls')),
 	path('admin/', admin.site.urls),
+	path('financial/', include('Media_Manager.apps.Financial.urls')),
 ]
 '''
 if settings.ADMIN_ENABLED:
