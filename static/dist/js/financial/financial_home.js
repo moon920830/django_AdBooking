@@ -4,11 +4,11 @@ const manageDepartmentBtn 	= document.querySelector('#manage_department');
 const manageProfitBtn 		= document.querySelector('#manage_profit');
 const manageGLBtn 			= document.querySelector('#manage_gl');
 
-const manageCompanyWindow = document.querySelector('#financial_company_code');
-const manageLocationWindow = document.querySelector('#financial_location_code');
+const manageCompanyWindow 	 = document.querySelector('#financial_company_code');
+const manageLocationWindow 	 = document.querySelector('#financial_location_code');
 const manageDepartmentWindow = document.querySelector('#financial_department_code');
-const manageProfitWindow = document.querySelector('#financial_profit_code');
-const manageGLWindow = document.querySelector('#financial_gl_code');
+const manageProfitWindow 	 = document.querySelector('#financial_profit_code');
+const manageGLWindow 		 = document.querySelector('#financial_gl_code');
 
 const buttonInactiveColor = "#9999b6";
 const buttonActiveColor = "#21215F";

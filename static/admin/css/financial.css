@@ -1918,8 +1918,8 @@ table.financial-table tr:hover {
     text-align: center;
 }
 
-.edit-layout {
-    
+.edit-layout button{
+    background-color: white;
 }
 
 .table-header {
@@ -2005,4 +2005,127 @@ table.financial-table tr:hover {
 .financial-pagination{
     text-align: center;
     margin-bottom: 2vh;
+}
+
+
+/* edit layout modal style */
+
+#editLayout .modal-dialog {
+    width: 1000px;
+}
+
+#editLayout .modal-title {
+    margin-top: 30px;
+}
+
+#editLayout .modal-title span {
+    border-bottom: 3px solid black;
+    color: #000;
+    font-family: "Lato", serif;
+    font-size: 33px;
+    font-weight: 400;
+    padding: 0 120px 10px 120px;
+}
+
+.campaign-form {
+   padding: 0 80px;
+}
+
+#editLayout .campaign-form input,
+#editLayout .campaign-form select {
+    color: black;
+    height: 40px;
+}
+
+.modal_description {
+    font-size: 17px;
+    font-weight: 700;
+    color: #666666;
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.available_code {
+    margin-left: 20%;
+    margin-top: 2%;
+}
+
+.available_code span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #666666;
+    text-align: center;
+    margin-top: 6vh;
+}
+
+.available_code button {
+    background-color: #21215f75;
+    border: #21215F;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    width: 100px;
+    height: 25px;
+    margin-right: 15px;
+}
+
+.selected_code {
+    margin-left: 20%;
+    margin-top: 2%;
+}
+
+.selected_code span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #666666;
+    text-align: center;
+    margin-top: 6vh;
+}
+
+.selected_code button {
+    background-color: #21215f75;
+    border: #21215F;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    width: 100px;
+    height: 25px;
+    margin-right: 30px;
+}
+
+.selected_code .button_group {
+    border: 1px solid black;
+    padding: 15px;
+    width: 80%;
+    border-radius: 9px;
+    display: flex;
+}
+
+.item {
+    display: flex;
+    position: relative;
+}
+
+.item .icon {
+    cursor: pointer;
+    position: absolute;
+    top: -7px;
+    left: 89px;
+}
+
+.input_item {
+    font-size: 12px;
+    font-weight: 700;
+    color: #666666;
+}
+
+.input_item .enabled {
+    border: 1px solid #21215F;
+    border-radius: 4px;
+}
+
+.input_item .disabled{
+    opacity: 70%!important;
 }
