@@ -5,3 +5,4 @@ Media_Manager/wsgi.py
 db.sqlite3
 tmp/logs/*
 .vscode/*
+/.idea
